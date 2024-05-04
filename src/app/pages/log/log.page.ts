@@ -50,7 +50,7 @@ export class LogPage implements OnInit {
         .then(async res => this.loginUser())
         .catch(async error => {
           const t = await this.toast.create({
-            position: "middle",
+            position: 'bottom',
             message: error.message,
             duration: 2000
           });
@@ -66,7 +66,7 @@ export class LogPage implements OnInit {
         this.router.navigate(['tabs/tab1']);
       }).catch(async error => {
         const t = await this.toast.create({
-          position: "middle",
+          position: "bottom",
           message: error.message,
           duration: 2000
         });
@@ -75,25 +75,27 @@ export class LogPage implements OnInit {
   }
 
   changeMode() {
-    this.register = !this.register;
-    this.form.controls['email'].setValue('');
-    this.form.controls['password'].setValue('');
-    this.form.controls['password2'].setValue('');
+    setTimeout(() => {
+      this.register = !this.register;
+      this.form.controls['email'].setValue('');
+      this.form.controls['password'].setValue('');
+      this.form.controls['password2'].setValue('');
+    }, 3000);
   }
 
 
-  logAccount1(){
+  logAccount1() {
     this.register = false;
     this.form.controls['email'].setValue('account1@test.com');
     this.form.controls['password'].setValue('123123');
   }
 
-  logAccount2(){
+  logAccount2() {
     this.register = false;
     this.form.controls['email'].setValue('account2@test.com');
     this.form.controls['password'].setValue('123123');
   }
-  logAccount3(){
+  logAccount3() {
     this.register = false;
     this.form.controls['email'].setValue('account3@test.com');
     this.form.controls['password'].setValue('123123');
