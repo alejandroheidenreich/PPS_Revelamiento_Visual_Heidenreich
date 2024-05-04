@@ -10,6 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "deploy-android": "ionic build && npx cap sync android && ionic capacitor build android",
     "deploy": "rm -rf android && ng build && npx cap add android && npx cap open android && npx @capacitor/assets generate --iconBackgroundColor #eeeeee --iconBackgroundColorDark #222222 --splashBackgroundColor #eeeeee --splashBackgroundColorDark #111111"
   },
   "private": true,
@@ -32,6 +33,7 @@
     "@ionic/angular": "^7.0.0",
     "firebase": "^10.11.0",
     "ionicons": "^7.0.0",
+    "ngx-spinner": "^16.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

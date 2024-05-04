@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   logout() {
-    this.afauth.signOut().then(() => this.router.navigate(['']));
+    this.afauth.signOut().then(() => this.router.navigate(['log']));
   }
 
 }
