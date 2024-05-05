@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package pps.rev.vis;
 
 import com.getcapacitor.BridgeActivity;
 

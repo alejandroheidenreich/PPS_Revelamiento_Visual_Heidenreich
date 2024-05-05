@@ -19,6 +19,7 @@ export class LogPage implements OnInit {
 
 
   public register: boolean = false;
+  public selected: number = 0;
   public user!: User;
   public form: FormGroup = this.fb.group({
     email: [""],
@@ -80,6 +81,7 @@ export class LogPage implements OnInit {
       this.form.controls['email'].setValue('');
       this.form.controls['password'].setValue('');
       this.form.controls['password2'].setValue('');
+      this.selected = 0;
     }, 3000);
   }
 
@@ -88,16 +90,19 @@ export class LogPage implements OnInit {
     this.register = false;
     this.form.controls['email'].setValue('account1@test.com');
     this.form.controls['password'].setValue('123123');
+    this.selected = 1;
   }
 
   logAccount2() {
     this.register = false;
     this.form.controls['email'].setValue('account2@test.com');
     this.form.controls['password'].setValue('123123');
+    this.selected = 2;
   }
   logAccount3() {
     this.register = false;
     this.form.controls['email'].setValue('account3@test.com');
     this.form.controls['password'].setValue('123123');
+    this.selected = 3;
   }
 }

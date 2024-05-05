@@ -11,6 +11,13 @@ a {
 }
 
 
+.selected {
+    --background: var(--ion-color-success);
+}
+
+.notselected {
+    --background: var(--ion-color-secondary);
+}
 
 
 // ion-list,

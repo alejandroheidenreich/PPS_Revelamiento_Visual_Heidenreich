@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'pps.rev.vis',
   appName: 'Revelamiento Visual',
   webDir: 'www',
   server: {
