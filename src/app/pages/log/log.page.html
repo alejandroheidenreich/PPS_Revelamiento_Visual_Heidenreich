@@ -6,12 +6,12 @@
     </ion-toolbar>
   </ion-header>
 
-  <br>
+
 
 
   <img src="assets/icon.png" alt="logo" style="width: 50%;margin-left: 5.8rem;">
   <br>
-  <br>
+
   <ion-grid>
     <ion-row class="ion-justify-content-around" style="margin-left: 1.8rem;">
       <ion-col size="3">
@@ -36,31 +36,35 @@
 
 
   <br>
-  <br>
   <form [formGroup]="form" class="login" (ngSubmit)="onSubmit()">
     <ion-card color="secondary">
 
       <ion-card-header>
+        <br>
         @if(register){
-        <ion-card-title>REGISTRARSE</ion-card-title>
+        <ion-card-title>REGISTRAR USUARIO</ion-card-title>
         }
         @else{
-        <ion-card-title>INGRESAR</ion-card-title>
+        <ion-card-title>INGRESAR USUARIO</ion-card-title>
         }
+
       </ion-card-header>
 
       <ion-card-content>
         <ion-list>
-          <ion-item color="terciary">
+          <ion-item color="tertiary">
             <ion-input type="email" placeholder="Correo" formControlName="email"></ion-input>
           </ion-item>
-          <ion-item color="terciary">
+          <br>
+          <ion-item color="tertiary">
             <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
           </ion-item>
           @if(register){
-          <ion-item color="terciary">
+          <br>
+          <ion-item color="tertiary">
             <ion-input type="password" placeholder="Repetir contraseña" formControlName="password2"></ion-input>
           </ion-item>
+
           }
         </ion-list>
       </ion-card-content>
@@ -68,20 +72,21 @@
       <ion-card-subtitle style="left: 1em;">
         <!-- <hr> -->
         @if(register){
-        Ya tienes una cuenta? <a id="mode" (click)="changeMode()" class="text-bold">Ingresar</a>
+        Ya tienes una cuenta? <a id="mode" (click)="changeMode()" class="text-bold"> Ingresar</a>
         }
         @else{
-        No tienes cuenta? <a id="mode" (click)="changeMode()" class="text-bold ">Registrarse</a>
+        No tienes cuenta? <a id="mode" (click)="changeMode()" class="text-bold"> Registrarse</a>
         }
       </ion-card-subtitle>
-
       <br>
+
     </ion-card>
 
     @if(!register){
     <br>
     <br>
     }
+
     <ion-grid>
       <ion-row class="ion-justify-content-center">
         <ion-col size="6">
