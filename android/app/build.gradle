@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     namespace "pps.rev.vis"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "pps.rev.vis"
         minSdkVersion rootProject.ext.minSdkVersion

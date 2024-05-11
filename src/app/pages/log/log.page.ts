@@ -34,6 +34,7 @@ export class LogPage implements OnInit {
     {
       email: this.form.controls['email'].value,
       password: this.form.controls['password'].value,
+      votos: [],
     }
     console.log(this.user);
 
