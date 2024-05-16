@@ -1,8 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
-    <ion-title>
-      Ver Fotos
-    </ion-title>
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="5" style="top: 0.8rem;">
+        <ion-title>
+          Ver Fotos
+        </ion-title>
+      </ion-col>
+      <ion-col size="5">
+        <ion-button shape="round" size="small" (click)="goResultados()">
+          Resultados
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
   </ion-toolbar>
 </ion-header>
 
@@ -16,10 +26,11 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let foto of fotos;" size="6">
-        <ion-card color="secondary">
+        <ion-card color="secondary" [attr.id]="'card-' + foto.id" tabindex="-1">
           <ion-card-header color="tertiary">
-            <ion-label class="ion-text-capitalize"> {{ foto.tipo }}</ion-label>
+            <ion-label class="ion-text-capitalize">{{ foto.tipo }}</ion-label>
             <ion-label>Por: {{ foto.user.split("@")[0] }}</ion-label>
+            <ion-label>Fecha: {{ getDate(foto.fecha)}}</ion-label>
           </ion-card-header>
           <ion-card-content [ngClass]="foto.tipo === 'fea' ? 'notselected' : 'selected'">
             <br>
@@ -27,25 +38,17 @@
           </ion-card-content>
           <ion-card-header color="tertiary">
             <ion-row class="ion-justify-content-around">
-              <ion-col size="5">
-                <ion-button shape="round" size="small">
-                  <ion-icon slot="icon-only" name="thumbs-up" color="success"></ion-icon>
+              <ion-col size="12">
+                <ion-button expand="block" (click)="vote(foto,'card-' + foto.id)"
+                  ngClass="{{checkVotes(foto)? '':'checked'}}">
+                  <ion-icon size="large" name="add-circle" color="success"></ion-icon>
                 </ion-button>
               </ion-col>
-              <ion-col size="5">
-                <ion-button shape="round" size="small">
-                  <ion-icon slot="icon-only" name="thumbs-down" color="danger"></ion-icon>
-                </ion-button>
-              </ion-col>
+
             </ion-row>
           </ion-card-header>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!-- <ion-item>
-
-  </ion-item> -->
-
-  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>

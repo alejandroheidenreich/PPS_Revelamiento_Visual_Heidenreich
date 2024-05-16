@@ -1,0 +1,25 @@
+// .advanced-pie-legend-wrapper {
+//     display: none !important;
+// }
+
+
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-top {
+    border-top: 7px solid !important;
+    size: 5px;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-right {
+    border-right: 7px solid !important;
+    size: 5px;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-bottom {
+    border-bottom: 7px solid !important;
+    size: 5px;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-left {
+    border-left: 7px solid !important;
+    size: 5px;
+}

@@ -5,6 +5,9 @@ import { Photo } from '@capacitor/camera';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Foto } from '../interfaces/foto';
+import { UserService } from './user.service';
+import { updateDoc } from 'firebase/firestore';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +15,9 @@ import { Foto } from '../interfaces/foto';
 export class ImageService {
 
   private dataRef = collection(this.firestore, 'fotos');
+  private dataRefUsers = collection(this.firestore, 'users');
 
-  constructor(private storage: Storage, private firestore: Firestore, private auth: AuthService) { }
+  constructor(private storage: Storage, private firestore: Firestore, private auth: AuthService, private userService: UserService) { }
 
   async subirImg(cameraFile: Photo, fotoType: string): Promise<string | null> {
     return new Promise<string>((resolve, reject) => {
@@ -32,7 +36,8 @@ export class ImageService {
             url: imageUrl,
             user: user?.email,
             tipo: fotoType,
-            fecha: Date.now()
+            fecha: Date.now(),
+            votes: [],
           }// get the image url
           //const userDocRef = doc(this.firestore, `fotos`); // get the user's document reference
           const docs = doc(this.dataRef);
@@ -60,6 +65,18 @@ export class ImageService {
     });
   }
 
+  async votePhoto(photo: Foto, user: User) {
+
+    if (user) {
+      const docsPhoto = doc(this.dataRef, photo.id);
+      updateDoc(docsPhoto, { votes: photo.votes });
+      const docsUser = doc(this.dataRefUsers, user.id);
+      updateDoc(docsUser, { votos: user.votos });
+    }
+  }
+
 }
+
+
 
 

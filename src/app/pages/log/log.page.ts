@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastController, ToastOptions } from '@ionic/angular';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-log',
@@ -27,17 +28,25 @@ export class LogPage implements OnInit {
     password2: [""],
   });
 
-  constructor(private auth: AuthService, private fb: FormBuilder, private router: Router, private toast: ToastController) { }
+  constructor(private auth: AuthService, private fb: FormBuilder, private router: Router, private toast: ToastController, private userService: UserService) {
+    // let userTest =
+    // {
+    //   id: "",
+    //   email: 'account3@test.com',
+    //   password: '123123',
+    //   votos: [],
+    // }
+    // this.userService.createUser(userTest);
+  }
 
   onSubmit() {
     this.user =
     {
+      id: "",
       email: this.form.controls['email'].value,
       password: this.form.controls['password'].value,
       votos: [],
     }
-    console.log(this.user);
-
     if (this.register) {
       this.registerUser();
     } else {
@@ -49,7 +58,10 @@ export class LogPage implements OnInit {
     const password2 = this.form.controls['password2'].value
     if (this.user.password == password2) {
       this.auth.register(this.user)
-        .then(async res => this.loginUser())
+        .then(async res => {
+          this.loginUser();
+          this.userService.createUser(this.user);
+        })
         .catch(async error => {
           const t = await this.toast.create({
             position: 'bottom',

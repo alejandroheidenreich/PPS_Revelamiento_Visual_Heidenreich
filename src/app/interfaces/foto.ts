@@ -3,5 +3,6 @@ export interface Foto {
     url: string,
     user: string,
     tipo: string,
-    fecha: string
+    fecha: string,
+    votes: string[],
 }

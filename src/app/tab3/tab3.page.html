@@ -1,17 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
     <ion-title>
-      Tab 3
+      Resultados
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 3</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-row class="container" style="margin-top: 0.3rem;">
+    <ion-col size="12" style="margin-left: 0.0rem;">
+      <ion-label style="margin-left: 2.0rem;">LINDAS</ion-label>
+
+      @if(xL.length > 0){
+
+      <!-- <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels"
+        [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+      </canvas> -->
+      <!-- <div echarts (chartInit)="onChartInit($event)" [options]="optionsLindas" class="demo-chart"></div> -->
+      <div echarts [options]="optionsLindas" [theme]="theme" class="demo-chart"></div>
+      }
+      @else{
+      <ion-label>No hay fotos lindas</ion-label>
+      }
+    </ion-col>
+
+    @if(optionsFeas && xF.length>0){
+    <ion-col size="12" style="margin-left: 2.0rem;">
+      <ion-label>
+        FEAS
+      </ion-label>
+      <echarts [initOpts]="initOptsFeas" [options]="optionsFeas"></echarts>
+    </ion-col>
+    }
+    @else{
+    <ion-label>No hay fotos feas</ion-label>
+    }
+  </ion-row>
+
+
+
 </ion-content>
