@@ -13,9 +13,9 @@
     </ion-toolbar>
   </ion-header> -->
 
-  <ion-row class="container" style="margin-top: 0.3rem;">
+  <ion-row class="container">
     <ion-col size="12" style="margin-left: 0.0rem;">
-      <ion-label style="margin-left: 2.0rem;">LINDAS</ion-label>
+      <!-- <ion-label style="margin-left: 2.0rem;">LINDAS</ion-label> -->
 
       @if(xL.length > 0){
 
@@ -25,22 +25,20 @@
       <!-- <div echarts (chartInit)="onChartInit($event)" [options]="optionsLindas" class="demo-chart"></div> -->
       <div echarts [options]="optionsLindas" [theme]="theme" class="demo-chart"></div>
       }
-      @else{
+      <!-- @else{
       <ion-label>No hay fotos lindas</ion-label>
-      }
+      } -->
     </ion-col>
 
     @if(optionsFeas && xF.length>0){
     <ion-col size="12" style="margin-left: 2.0rem;">
-      <ion-label>
-        FEAS
-      </ion-label>
+      <!-- <ion-label>FEAS </ion-label> -->
       <echarts [initOpts]="initOptsFeas" [options]="optionsFeas"></echarts>
     </ion-col>
     }
-    @else{
+    <!-- @else{
     <ion-label>No hay fotos feas</ion-label>
-    }
+    } -->
   </ion-row>
 
 

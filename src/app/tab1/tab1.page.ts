@@ -17,7 +17,10 @@ export class Tab1Page {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
-      resultType: CameraResultType.Base64
+      resultType: CameraResultType.Base64,
+      promptLabelHeader: "Foto Linda",
+      promptLabelPicture: "Tomar Foto",
+      promptLabelPhoto: "Desde Galeria"
     });
 
     // image.webPath will contain a path that can be set as an image src.
@@ -35,7 +38,10 @@ export class Tab1Page {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
-      resultType: CameraResultType.Base64
+      resultType: CameraResultType.Base64,
+      promptLabelHeader: "Foto Fea",
+      promptLabelPicture: "Tomar Foto",
+      promptLabelPhoto: "Desde Galeria"
     });
 
     if (image) {

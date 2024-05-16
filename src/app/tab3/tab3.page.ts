@@ -196,6 +196,12 @@ export class Tab3Page implements OnInit {
             { value: this.contabilizarFoto(f), name: f.url, label: { show: false }, labelLine: { show: false } }
           );
           this.optionsLindas = {
+            title: {
+              left: '50%',
+              text: 'Lindas',
+              // subtext: 'Mocking Data',
+              textAlign: 'center',
+            },
             tooltip: {
               confine: true,
               trigger: 'item',
@@ -229,6 +235,12 @@ export class Tab3Page implements OnInit {
           }
         });
         this.optionsFeas = {
+          title: {
+            left: '50%',
+            text: 'Feas',
+            // subtext: 'Mocking Data',
+            textAlign: 'center',
+          },
           color: ['#3398DB'],
           tooltip: {
             confine: true,
