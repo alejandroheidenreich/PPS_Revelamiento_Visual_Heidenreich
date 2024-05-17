@@ -76,3 +76,24 @@ b {
   background-color: var(--ion-color-danger);
   /* Color de fondo para la segunda fila */
 }
+
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+
+.centradoTop {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centradoBot {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
